@@ -7,7 +7,7 @@ The original source code written by Michael 'Squirt' Buettner can be found at ht
 
 *- Removed the loss of stamina entirely.*
 
-*- Removed the loss of health from failing a trick or falling from a large height. (you can still fail a trick and will be interrupted if you fall from a large height, you just won't take damage anymore).*
+*- Removed the loss of health while taking damage (currently instaheals you, I would like to make it only deal damage if enemies hit you, with tricks and fall damage doing nothing. I'm still limited in my understanding of this mod's source code though, so expect nothing*
 
 *- Removed the credits message that displayed anytime a level was loaded. Credits to Squirt have been moved to the Help message (viewed by pressing F1).*
 
