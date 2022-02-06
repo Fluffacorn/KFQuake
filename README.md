@@ -31,15 +31,15 @@ This also rarely comes into play, and is annoying. Your actual rate of healing i
 
 `- Removed the credits message that displayed anytime a level was loaded. Credits to Squirt have been moved to the Help message (viewed by pressing F1.)`
 
-This mod is over two decades old at this point, and credits to Squirt remain in the game via the Help command. The issue is how long this message was on screen, you would have to wait it out everytime a level was loaded. I did not like this, and I don't know anyone that did. I don't imagine Squirt still cares, where he is.
+This mod is over two decades old at this point, and credits to Squirt remain in the game via the Help command. The issue is how long this message was on screen, you would have to wait it out everytime a level was loaded. I did not like this, and I don't know anyone that did. I don't imagine Squirt still cares, wherever he is.
 
 `- Changed the Help message to credit Squirt and provide instructions on how to rebind keys.`
 
-Exactly what's written on the tin, the Help menu is now a bit more fleshed out. It was very annoying to learn how to bind keys before, that is no longer the case.
+Exactly what's written on the tin, the Help menu is now a bit more fleshed out. It was very annoying to learn how to bind keys before, that should no longer be the case.
 
 `- You no longer instantly die in water, slime, or lava.`
 
-You still take damage from slime and lava, water is still a bit odd to navigate. I didn't see a reason for this to exist honestly.
+You still take damage from slime and lava, water is still a bit odd to move in. I didn't see a reason for this to exist honestly.
 
 `- Removed the penalty for not looking in the direction you're moving when landing.`
 
