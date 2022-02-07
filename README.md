@@ -83,3 +83,7 @@ This is the most drastic change in my opinion. I believe it to be good though, i
 `- Removed both celebration sounds and both music tracks from the game.`
 
 You will generally be playing your own music when messing about with this mod, and the celebration sounds were annoying. The music is also very low quality, and may land me in copyright trouble. I don't want to deal with either of these issues, especially when I personally never listen to the music.
+
+## Compiling from source.
+
+There's a good chance you're smarter than me, maybe you can fix something broken. This is compiled in the same way as all other Quake 1 mods, I personally use FTEQCC which can be found at https://fte.triptohell.info. 
