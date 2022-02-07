@@ -87,3 +87,7 @@ You will generally be playing your own music when messing about with this mod, a
 ## Compiling from source.
 
 There's a good chance you're smarter than me, maybe you can fix something broken. This is compiled in the same way as all other Quake 1 mods, I personally use FTEQCC which can be found at https://fte.triptohell.info. 
+
+## Extra stuff :)
+
+To hide the HUD, enter the `sizeup` command in Quake until the HUD disappears.
