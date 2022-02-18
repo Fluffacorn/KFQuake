@@ -10,7 +10,7 @@ The original source code written by Michael 'Squirt' Buettner can be found at ht
 
 ## Default controls
 
-First Header  | Second Header
+Command  | Keybind
 ------------- | -------------
 Help  | F1
 Trick 1 (Indy Grab)  | Shift
