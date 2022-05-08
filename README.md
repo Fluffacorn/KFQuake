@@ -3,9 +3,7 @@ https://www.youtube.com/watch?v=QhkMOpNYDXE
 
 ***THIS IS NOT A REWRITE NOR WILL IT FUNDAMENTALLY CHANGE HOW KICKFLIP QUAKE WORKS.*** *I retain no rights to this work as I did not create the original mod, I made this because I enjoy Kickflip Quake too much to leave minor annoyances in. Note that this was designed with FTEQuake in mind, and all releases will be intended for use with it. I will not provide assistance for other clients, I simply don't have the time to.*
 
-[All known tech can be viewed here](https://github.com/Fluffacorn/KFQuake/wiki)
-
-**Make sure to check the Wiki tab on this github page! It contains useful information.**
+[**All known tech can be viewed on the wiki page.**](https://github.com/Fluffacorn/KFQuake/wiki)
 
 ***Free Melee.***
 
