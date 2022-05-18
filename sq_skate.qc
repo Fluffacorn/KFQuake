@@ -624,7 +624,7 @@ local float	fell;
 				sprint(self, " to Backside Boardslide");	//......
 			}
 		}
-		sprint(self, " !\n");
+		sprint(self, "!\n");
 
 		if (trick_points > 1)
 		{
@@ -730,7 +730,7 @@ local vector 	new_vel;
 		//check if player is slower than expected-->grinding up-->fall!hahaha
 			if (self.grind_start_time + 0.5 < time && vlen(self.velocity) < 150)
 			{
-				sprint(self,"You don't have enough speed !\n");
+				sprint(self,"You don't have enough speed!\n");
 				skate_fall();
 				return;
 			}
@@ -748,7 +748,7 @@ local vector 	new_vel;
 
 		if (!onrail() && (self.trick == TRICK_GRIND))
 		{
-			sprint(self,"You skipped a grind !\n");
+			sprint(self,"You skipped a grind!\n");
 			self.jump_flag = -1000;
 			skate_fall();
 			return;
