@@ -727,14 +727,6 @@ local vector 	new_vel;
 
 		if (onrail() && (self.trick == TRICK_GRIND))
 		{
-		//check if player is slower than expected-->grinding up-->fall!hahaha
-			if (self.grind_start_time + 0.5 < time && vlen(self.velocity) < 150)
-			{
-				sprint(self,"You don't have enough speed!\n");
-				skate_fall();
-				return;
-			}
-		//end check
 
 			new_vel = 280 * v_forward;		//grind to the right (with frames)
 			self.velocity_z = -280;			//grind down somewhere
