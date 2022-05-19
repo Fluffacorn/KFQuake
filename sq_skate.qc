@@ -737,7 +737,7 @@ local vector 	new_vel;
                 vlen(new_vel) = vlen(self.velocity);        //grind to the right (with frames)
             }
         //end check
-			self.velocity_z = -280;			//grind down somewhere
+			self.velocity_z = -120;			//grind down somewhere
 			self.grind_stop_time = time;		//update stop time. when in air, it won't be set
 			if (self.super_sound < time)		//play grinding sound
 			{						//use super_sound for right timing
