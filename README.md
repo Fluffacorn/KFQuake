@@ -1,4 +1,4 @@
-# KFQuake
+# KFQuake (V1.1 Archive)
 https://www.youtube.com/watch?v=QhkMOpNYDXE
 
 ***THIS IS NOT A REWRITE NOR WILL IT FUNDAMENTALLY CHANGE HOW KICKFLIP QUAKE WORKS IN A MAJOR WAY.*** *I retain no rights to this work as I did not create the original mod, I made this because I enjoy Kickflip Quake too much to leave minor annoyances in. Note that this was designed with FTEQuake in mind, and all releases will be intended for use with it. I will not provide assistance for other clients, I simply don't have the time to.*
