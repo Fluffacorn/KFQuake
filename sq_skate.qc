@@ -728,7 +728,7 @@ local vector 	new_vel;
 		if (onrail() && (self.trick == TRICK_GRIND))
         {
         //check if player is slower than expected
-            if (vlen(self.velocity) < 320)
+            if (vlen(self.velocity) <= 320)
             {
                 new_vel = 320 * v_forward;        //grind to the right (with frames)
 		self.velocity_z = -120;		//If skating forward or up hill, activate feather falling
