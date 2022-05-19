@@ -731,13 +731,14 @@ local vector 	new_vel;
             if (vlen(self.velocity) < 320)
             {
                 new_vel = 320 * v_forward;        //grind to the right (with frames)
+		self.velocity_z = -120;		//If skating forward or up hill, activate feather falling
             }
             if (vlen(self.velocity) > 320)
             {
                 vlen(new_vel) = vlen(self.velocity);        //grind to the right (with frames)
+		self.velocity_z = -280;			//If skating downhill, activate fox shoes
             }
         //end check
-			self.velocity_z = -120;			//grind down somewhere
 			self.grind_stop_time = time;		//update stop time. when in air, it won't be set
 			if (self.super_sound < time)		//play grinding sound
 			{						//use super_sound for right timing
