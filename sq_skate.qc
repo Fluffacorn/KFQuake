@@ -726,9 +726,17 @@ local vector 	new_vel;
 		}
 
 		if (onrail() && (self.trick == TRICK_GRIND))
-		{
-
-			new_vel = 280 * v_forward;		//grind to the right (with frames)
+        {
+        //check if player is slower than expected
+            if (vlen(self.velocity) < 320)
+            {
+                new_vel = 320 * v_forward;        //grind to the right (with frames)
+            }
+            if (vlen(self.velocity) > 320)
+            {
+                vlen(new_vel) = vlen(self.velocity);        //grind to the right (with frames)
+            }
+        //end check
 			self.velocity_z = -280;			//grind down somewhere
 			self.grind_stop_time = time;		//update stop time. when in air, it won't be set
 			if (self.super_sound < time)		//play grinding sound
