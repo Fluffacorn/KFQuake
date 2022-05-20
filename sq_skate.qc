@@ -624,7 +624,7 @@ local float	fell;
 				sprint(self, " to Backside Boardslide");	//......
 			}
 		}
-		sprint(self, " !\n");
+		sprint(self, "!\n");
 
 		if (trick_points > 1)
 		{
@@ -726,18 +726,19 @@ local vector 	new_vel;
 		}
 
 		if (onrail() && (self.trick == TRICK_GRIND))
-		{
-		//check if player is slower than expected-->grinding up-->fall!hahaha
-			if (self.grind_start_time + 0.5 < time && vlen(self.velocity) < 150)
-			{
-				sprint(self,"You don't have enough speed !\n");
-				skate_fall();
-				return;
-			}
-		//end check
-
-			new_vel = 280 * v_forward;		//grind to the right (with frames)
-			self.velocity_z = -280;			//grind down somewhere
+        {
+        //check if player is slower than expected
+            if (vlen(self.velocity) <= 320)
+            {
+                new_vel = 320 * v_forward;        //grind to the right (with frames)
+		self.velocity_z = -120;		//If skating forward or up hill, activate feather falling
+            }
+            if (vlen(self.velocity) > 320)
+            {
+                vlen(new_vel) = vlen(self.velocity);        //grind to the right (with frames)
+		self.velocity_z = -280;			//If skating downhill, activate fox shoes
+            }
+        //end check
 			self.grind_stop_time = time;		//update stop time. when in air, it won't be set
 			if (self.super_sound < time)		//play grinding sound
 			{						//use super_sound for right timing
@@ -748,7 +749,7 @@ local vector 	new_vel;
 
 		if (!onrail() && (self.trick == TRICK_GRIND))
 		{
-			sprint(self,"You skipped a grind !\n");
+			sprint(self,"You skipped a grind!\n");
 			self.jump_flag = -1000;
 			skate_fall();
 			return;
