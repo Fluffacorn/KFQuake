@@ -1,4 +1,4 @@
-/*
+﻿/*
 */
 void (entity targ, entity inflictor, entity attacker, float damage) T_Damage;
 void () player_run;
@@ -1244,7 +1244,7 @@ void() QuadCheat =
 
 void() print_help =
 {
-	sprint(self, "KFQuake v1.01 \nCheck https://github.com/Fluffacorn/KFQuake/ to view the default bindings, along with a tutorial on how to change key bindings. \nFull credits to Michael 'Squirt' Buettner for the original Kickflip Quake source code. \nI only modified some things I found annoying, the mod remains largely the same. \nI do not know how to bring back runes or keys, if you do, feel free to make a PR. \n");    
+	sprint(self, "KFQuake v1.2 \nCheck https://github.com/Fluffacorn/KFQuake/ to view the default bindings, along with a tutorial on how to change key bindings. \nFull credits to Michael 'Squirt' Buettner for the original Kickflip Quake source code. \n");    
 };
 
 
