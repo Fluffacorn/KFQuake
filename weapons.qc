@@ -1244,7 +1244,7 @@ void() QuadCheat =
 
 void() print_help =
 {
-	sprint(self, "KFQuake v1.21 \nCheck https://github.com/Fluffacorn/KFQuake/ to view the default bindings, along with a tutorial on how to change key bindings. \nFull credits to Michael 'Squirt' Buettner for the original Kickflip Quake source code. \n");    
+	sprint(self, "KFQuake v1.3 \nCheck https://github.com/Fluffacorn/KFQuake/ to view the default bindings, along with a tutorial on how to change key bindings. \nFull credits to Michael 'Squirt' Buettner for the original Kickflip Quake source code. \n");    
 };
 
 
