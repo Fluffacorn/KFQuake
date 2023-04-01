@@ -233,29 +233,6 @@ local float	rand_dmg;
 	self.jump_flag = 0;
 };
 
-float() check_wrong_direction =
-{
-	local vector	vec;
-	local vector	spot;
-	local float		dot;
-
-	if (self.spawn_time + 1 > time)		//player just respawned, exit
-		return FALSE;
-
-	spot = self.origin + (self.velocity * 0.15); //a spot where player will be in a short time
-	makevectors (self.angles);
-	vec = normalize (spot - self.origin);
-	dot = vec * v_forward;
-
-	if ( dot > -1)	//-0.1 : 0.3 the higher the number, the lower the degree spectrum
-	{
-		return FALSE;		//player looks in right direction
-	}
-	sprint(self, "If you see this, I fucked up somehow.");
-	return TRUE;
-};
-
-
 //-----------------------
 void() skate_land =
 //-----------------------
@@ -279,7 +256,7 @@ local float	fell;
 		self.trick = 0;			//no good landing no trick points !
 		fell = TRUE;
 	}
-	else if (check_wrong_direction() || self.busting || (self.grind_stop_time + 0.4 > time && !onrail()))
+	else if (self.busting || (self.grind_stop_time + 0.4 > time && !onrail()))
 	{
 		self.trick = 0;			//no good landing no trick points !
 		fell = TRUE;
