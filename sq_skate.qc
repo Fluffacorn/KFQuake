@@ -148,9 +148,8 @@ void() skate_fire =
 	//player must be onground and not standing
 	if (self.push_fast_time < time && self.flags & FL_ONGROUND && (self.velocity_x || self.velocity_y))
 	{
-	if (self.ammo_shells > PUSH_STAMINA_COST && self.board_falling == FALSE && self.trick != TRICK_GRIND)//don't push while falling
+	if (self.board_falling == FALSE && self.trick != TRICK_GRIND)//don't push while falling
 	{
-		self.ammo_shells = self.ammo_shells - PUSH_STAMINA_COST;
 		sound (self, CHAN_BODY, "player/skaterol.wav", 1, ATTN_NORM);
 		self.push_fast_time = time + 2;
 		self.walkframe = 20;

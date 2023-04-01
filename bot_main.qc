@@ -217,8 +217,6 @@ void() jump_forward =
 	if (!(self.flags & FL_ONGROUND))
 		return;
 	
-		//jumping costs stamina now !
-	self.ammo_shells = self.ammo_shells - JUMP_STAMINA_COST;
 
 	
 	self.flags = self.flags - (self.flags & FL_ONGROUND);
@@ -337,9 +335,6 @@ void() check_for_ledge =
 	makevectors (self.angles);
 	if (!(self.flags & FL_ONGROUND))		
 		return;
-
-	if (self.ammo_shells <= JUMP_STAMINA_COST)		//jumping costs stamina now !
-		return;					//don't jump
 
 	if (random() < 0.1)					//Squirt
 	{								//just jump for fun :-)
@@ -555,7 +550,7 @@ local float	talk;
 	bot_talk_tries = 0;
 
 	talk = floor (random() * 6);
-		//bprint(" ");
+		//bprint("ï¿½ï¿½ï¿½ ");
 		//bprint (self.netname);
 	printy(self.netname);			// Print in yellow !	
 
@@ -645,7 +640,7 @@ local float	talk;
 		printy(self.talk_name);
 	}
 
-		//bprint(" ‘‘‘\n");
+		//bprint(" ï¿½ï¿½ï¿½\n");
 	printy("\n");
 
 	sound(self, CHAN_VOICE, "misc/talk.wav", 1, ATTN_NONE); 
@@ -730,8 +725,6 @@ local vector	spot;
 local float		wall_ahead;
 local float		stairs_ahead;
 
-	if (self.ammo_shells <= JUMP_STAMINA_COST)		//jumping costs stamina now !
-		return(FALSE);					//don't jump
 
 
 	stairs_ahead = check_stairs();		//function from sq_skate.qc

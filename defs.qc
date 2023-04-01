@@ -768,8 +768,6 @@ float GRIND_NORMAL = 1;			//looks like no animation
 float GRIND_BOARDSLIDE = 2;
 float GRIND_BACKBOARDSLIDE = 3;
 
-float	JUMP_STAMINA_COST = 30;		//jumping costs stamina
-float	PUSH_STAMINA_COST = 30;		//pushing off costs stamina
 
 //Music
 float	current_track;
