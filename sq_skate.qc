@@ -757,7 +757,7 @@ local vector 	new_vel;
 		//	self.busting = TRUE;
 		//}
 	}
-	else if (vlen(self.jump_vel) != 0)
+	else if (vlen(self.jump_vel) != 0 && self.super_time == 0)
 	{		//realistic jumping movement (player can't change direction)
 		self.velocity_x = self.jump_vel_x;				//don't change up or down movement
 		self.velocity_y = self.jump_vel_y;				//
