@@ -53,7 +53,7 @@ void() PlaceItem =
 		return;
 	}
 
-	remove(self);				//Squirt - no items !! >:-)
+	// remove(self);				Squirt - no items !! >:-) | Fluff - YES ITEMS WHAT WAS COOKING HERE 
 };
 
 /*
@@ -113,7 +113,7 @@ void() item_megahealth_rot;
 
 void() item_health =
 {	
-
+	remove(self);
 	self.touch = health_touch;
 
 	if (self.spawnflags & H_ROTTEN)
@@ -302,7 +302,7 @@ void() armor_touch =
 
 void() item_armor1 =
 {
-	
+	remove(self);
 	self.touch = armor_touch;
 	precache_model ("progs/armor.mdl");
 	setmodel (self, "progs/armor.mdl");
@@ -316,7 +316,7 @@ void() item_armor1 =
 
 void() item_armor2 =
 {
-
+	remove(self);
 	self.touch = armor_touch;
 	precache_model ("progs/armor.mdl");
 	setmodel (self, "progs/armor.mdl");
@@ -330,6 +330,7 @@ void() item_armor2 =
 
 void() item_armorInv =
 {
+	remove(self);
 	self.touch = armor_touch;
 	precache_model ("progs/armor.mdl");
 	setmodel (self, "progs/armor.mdl");
@@ -529,12 +530,7 @@ void() weapon_touch =
 
 void() weapon_supershotgun =
 {
-	if(deathmatch == 10)					//Squirt - GunArena
-	{
-		remove(self);
-		return;
-	}
-
+	remove(self);
 	precache_model ("progs/g_shot.mdl");
 	setmodel (self, "progs/g_shot.mdl");
 	self.weapon = IT_SUPER_SHOTGUN;
@@ -549,7 +545,7 @@ void() weapon_supershotgun =
 
 void() weapon_nailgun =
 {
-
+	remove(self);
 	precache_model ("progs/g_nail.mdl");
 	setmodel (self, "progs/g_nail.mdl");
 	self.weapon = IT_NAILGUN;
@@ -564,7 +560,7 @@ void() weapon_nailgun =
 
 void() weapon_supernailgun =
 {
-	
+	remove(self);
 	precache_model ("progs/g_nail2.mdl");
 	setmodel (self, "progs/g_nail2.mdl");
 	self.weapon = IT_SUPER_NAILGUN;
@@ -579,6 +575,7 @@ void() weapon_supernailgun =
 
 void() weapon_grenadelauncher =
 {
+	remove(self);
 	precache_model ("progs/g_rock.mdl");
 	setmodel (self, "progs/g_rock.mdl");
 	self.weapon = 3;
@@ -593,6 +590,7 @@ void() weapon_grenadelauncher =
 
 void() weapon_rocketlauncher =
 {
+	remove(self);
 	precache_model ("progs/g_rock2.mdl");
 	setmodel (self, "progs/g_rock2.mdl");
 	self.weapon = 3;
@@ -608,7 +606,7 @@ void() weapon_rocketlauncher =
 
 void() weapon_lightning =
 {
-
+	remove(self);
 	precache_model ("progs/g_light.mdl");
 	setmodel (self, "progs/g_light.mdl");
 	self.weapon = 3;
@@ -735,6 +733,7 @@ float WEAPON_BIG2 = 1;
 
 void() item_shells =
 {
+	remove(self);
 	self.touch = ammo_touch;
 
 	if (self.spawnflags & WEAPON_BIG2)
@@ -760,7 +759,7 @@ void() item_shells =
 
 void() item_spikes =
 {
-
+	remove(self);
 	self.touch = ammo_touch;
 
 	if (self.spawnflags & WEAPON_BIG2)
@@ -786,7 +785,7 @@ void() item_spikes =
 
 void() item_rockets =
 {
-
+	remove(self);
 	self.touch = ammo_touch;
 
 	if (self.spawnflags & WEAPON_BIG2)
@@ -813,6 +812,7 @@ void() item_rockets =
 
 void() item_cells =
 {
+	remove(self);
 	self.touch = ammo_touch;
 
 	if (self.spawnflags & WEAPON_BIG2)
@@ -1066,7 +1066,7 @@ local float		best;
 	self.solid = SOLID_NOT;
 	self.model = string_null;
 	serverflags = serverflags | (self.spawnflags & 15);
-	self.classname = "";		// so rune doors won't find it
+	self.classname = string_null;
 	
 	activator = other;
 	SUB_UseTargets();				// fire all targets / killtargets
