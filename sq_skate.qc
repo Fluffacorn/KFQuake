@@ -162,20 +162,60 @@ void() skate_fire =
 		sound (self, CHAN_VOICE, "player/plyrjmp8.wav", 1, ATTN_NORM);
 
 		//check key combinations first...
-		if(self.key_trick1 == TRUE && self.key_trick2 == TRUE)
+		if(self.key_trick1 == TRUE && self.key_trick2 == TRUE && self.invincible_finished != 0)
+		{
 			self.walkframe = 109;			//backside rotation
-		else if (self.key_trick1 == TRUE)
+			self.velocity_z = vlen(self.velocity_z) * 0 + 1300; // with pentagram, you get a hop
+		}
+		if(self.key_trick1 == TRUE && self.key_trick2 == TRUE)
+		{
+			self.walkframe = 109;			//backside rotation
+		}
+		else if (self.key_trick1 == TRUE && self.invincible_finished != 0)
+		{
 			self.walkframe = 37;			//ollie grap
-		else if(self.key_trick2 == TRUE)
+			self.velocity_z = vlen(self.velocity_z) * 0 + 500; // with pentagram, you get a hop
+		}
+		else if (self.key_trick1 == TRUE)
+		{
+			self.walkframe = 37;			//ollie grap
+		}
+		else if(self.key_trick2 == TRUE && self.invincible_finished != 0)
+		{
 			self.walkframe = 44;			//front 180
-		else if(self.key_trick3 == TRUE)
+			self.velocity_z = vlen(self.velocity_z) * 0 + 600; // with pentagram, you get a hop
+		}
+		else if(self.key_trick2 == TRUE)
+		{
+			self.walkframe = 44;			//front 180
+		}
+		else if(self.key_trick3 == TRUE && self.invincible_finished != 0)
+		{
 			self.walkframe = 51;			//360 flip
-		else
+			self.velocity_z = vlen(self.velocity_z) * 0 + 700; // with pentagram, you get a hop
+		}
+		else if(self.key_trick3 == TRUE)
+		{
+			self.walkframe = 51;			//360 flip
+		}
+		else if(self.invincible_finished != 0)
+		{
 			self.walkframe = 27;			//Kickflip
-
+			self.velocity_z = vlen(self.velocity_z) * 0 + 400; // with pentagram, you get a hop
+		}
+		else
+		{
+			self.walkframe = 27;			//Kickflip
+		}
 		self.busting = TRUE;
-	}
-
+	} 
+	// This is the worst code I have ever, ever, written. I know the whole point of half of my code is to
+	// keep with the scuffed nature of Squirt's original code, but this is a whole other low. I spent an
+	// absurd amount of time attempting to get this to work and when I tried optimizing it, that shit
+	// stopped working, which has convinced me that this particular block of code is cursed by the ghost
+	// of Squirt. Ignore the fact that he's alive, because I have no other explanation for this. This was
+	// all done for LITERALLY NOTHING because it only comes into play when you have one of the least common
+	// powerups in the game, in both multiplayer DM and singleplayer campaigns. It was, however, very funny!
 };
 
 //--------			//Checks if self is on a rail
