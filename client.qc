@@ -1062,8 +1062,16 @@ void() CheckPowerups =
 		}
 
 	// use the eyes
-		self.frame = 0;
-		self.modelindex = modelindex_eyes;
+	//	self.frame = 0;
+	//	self.modelindex = modelindex_eyes
+	
+	// Commented out so that you still see your model while under the effect of Ring of Shadows. This is
+	// because it looks ugly as shit. Monsters still can't see you though, and I don't know how at all
+	// being invisible would benefit someone in a trick competition. And trick competitions aren't even
+	// implemented well in Kickflip Quake, so.
+	// - Fluffacorn
+
+
 	}
 	else
 		self.modelindex = modelindex_player;	// don't use eyes

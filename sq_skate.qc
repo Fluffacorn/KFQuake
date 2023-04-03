@@ -288,14 +288,14 @@ local float	fell;
 
 	if (self.watertype == CONTENT_WATER)
 		sound (self, CHAN_BODY, "player/h2ojump.wav", 1, ATTN_NORM);
-	else if (self.jump_flag < -650) //fell down
+	else if (self.jump_flag < -650 && self.invisible_finished == 0) //fell down
 	{
 		sprint(self, self.netname);
 		sprint(self, " fell down.\n");
 		self.trick = 0;			//no good landing no trick points !
 		fell = TRUE;
 	}
-	else if (self.busting || (self.grind_stop_time + 0.4 > time && !onrail()))
+	else if (self.busting || (self.grind_stop_time + 0.4 > time && !onrail()) && self.invisible_finished == 0)
 	{
 		self.trick = 0;			//no good landing no trick points !
 		fell = TRUE;
@@ -651,7 +651,7 @@ local float	fell;
 		}
 	}
 
-	if (fell == TRUE)
+	if (fell == TRUE && self.invisible_finished == 0)
 	{
 		skate_fall();
 	}
@@ -763,7 +763,7 @@ local vector 	new_vel;
 			}
 		}
 
-		if (!onrail() && (self.trick == TRICK_GRIND))
+		if (!onrail() && (self.trick == TRICK_GRIND) && self.invisible_finished == 0)
 		{
 			sprint(self,"You skipped a grind!\n");
 			self.jump_flag = -1000;
