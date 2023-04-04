@@ -1061,16 +1061,11 @@ void() CheckPowerups =
 			self.invisible_time = 0;
 		}
 
-	// use the eyes
-	//	self.frame = 0;
-	//	self.modelindex = modelindex_eyes
-	
-	// Commented out so that you still see your model while under the effect of Ring of Shadows. This is
-	// because it looks ugly as shit. Monsters still can't see you though, and I don't know how at all
-	// being invisible would benefit someone in a trick competition. And trick competitions aren't even
-	// implemented well in Kickflip Quake, so.
-	// - Fluffacorn
-
+	 // Switch to the model of only the skateboard.
+		setmodel (self, "progs/invisiboard.mdl");
+		self.view_ofs = '0 0 22';
+		setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
+	// This took longer to create than I'd like to admit, but it was funny! - Fluffacorn
 
 	}
 	else
