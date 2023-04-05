@@ -1,4 +1,4 @@
-﻿/*
+/*
 */
 void (entity targ, entity inflictor, entity attacker, float damage) T_Damage;
 void () player_run;
@@ -1241,6 +1241,25 @@ void() QuadCheat =
 	dprint ("quad cheat\n");
 };
 
+void() PentaCheat =
+{
+	if (deathmatch || coop)
+		return;
+	self.invincible_time = 1;
+	self.invincible_finished = time + 30;
+	self.items = self.items | IT_INVULNERABILITY;
+	dprint ("penta cheat\n");
+};
+
+void() RingCheat =
+{
+	if (deathmatch || coop)
+		return;
+	self.invisible_time = 1;
+	self.invisible_finished = time + 30;
+	self.items = self.items | IT_INVISIBILITY;
+	dprint ("ring cheat\n");
+};
 
 void() print_help =
 {
@@ -1296,10 +1315,18 @@ void() ImpulseCommands =
 		self.key_trick3 = TRUE;				//
 	if (self.impulse == 94)					//
 		self.key_trick3 = FALSE;			//
+	if (self.impulse == 93)					//
+		self.key_trick4 = TRUE;				//
+	if (self.impulse == 92)					//
+		self.key_trick4 = FALSE;			//
 
 
 	if (self.impulse == 255)
 		QuadCheat ();
+	if (self.impulse == 254)
+		PentaCheat ();
+	if (self.impulse == 253)
+		RingCheat ();
 
 	self.impulse = 0;
 };

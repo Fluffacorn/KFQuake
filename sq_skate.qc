@@ -162,12 +162,12 @@ void() skate_fire =
 		sound (self, CHAN_VOICE, "player/plyrjmp8.wav", 1, ATTN_NORM);
 
 		//check key combinations first...
-		if(self.key_trick1 == TRUE && self.key_trick2 == TRUE && self.invincible_finished != 0)
+		if(self.key_trick4 == TRUE && self.invincible_finished != 0)
 		{
 			self.walkframe = 109;			//backside rotation
 			self.velocity_z = vlen(self.velocity_z) * 0 + 1300; // with pentagram, you get a hop
 		}
-		if(self.key_trick1 == TRUE && self.key_trick2 == TRUE)
+		else if(self.key_trick4 == TRUE)
 		{
 			self.walkframe = 109;			//backside rotation
 		}
@@ -598,6 +598,11 @@ local float	fell;
 			self.walkframe = 105;				//start backside boardsliding frames
 		}
 		else if (self.key_trick3 == TRUE)
+		{
+			self.diff_grinds = GRIND_BOARDSLIDE;
+			self.walkframe = 33;				//start boardsliding frames
+		}
+		else if (self.key_trick4 == TRUE)
 		{
 			self.diff_grinds = GRIND_BOARDSLIDE;
 			self.walkframe = 33;				//start boardsliding frames
