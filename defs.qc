@@ -742,6 +742,7 @@ float	b_skill;			//normal skill is always changed
 .float	key_trick1;			//player holds down a trick key...
 .float	key_trick2;			//.......
 .float	key_trick3;			//.......
+.float	key_trick4;			//.......
 .float	diff_grinds;		
 
 .float	health_regen_time;	//health regenerates
@@ -768,8 +769,6 @@ float GRIND_NORMAL = 1;			//looks like no animation
 float GRIND_BOARDSLIDE = 2;
 float GRIND_BACKBOARDSLIDE = 3;
 
-float	JUMP_STAMINA_COST = 30;		//jumping costs stamina
-float	PUSH_STAMINA_COST = 30;		//pushing off costs stamina
 
 //Music
 float	current_track;

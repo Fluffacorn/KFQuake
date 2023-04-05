@@ -817,9 +817,8 @@ void() PlayerJump =
 	}
 	else
 	{
-		if (self.ammo_shells > JUMP_STAMINA_COST && self.board_falling == FALSE)				//jumping costs health now !
-		{
-		self.ammo_shells = self.ammo_shells - JUMP_STAMINA_COST;
+		if (self.board_falling == FALSE)				//jumping costs health now !
+		{;
 		sound (self, CHAN_BODY, "player/skatejmp.wav", 1, ATTN_NORM);
 		self.velocity_z = self.velocity_z + 270;					//Squirt- 370 : 270
 		self.jump_vel = self.velocity;	//save the initial jump velocity
@@ -1062,9 +1061,12 @@ void() CheckPowerups =
 			self.invisible_time = 0;
 		}
 
-	// use the eyes
-		self.frame = 0;
-		self.modelindex = modelindex_eyes;
+	 // Switch to the model of only the skateboard.
+		setmodel (self, "progs/invisiboard.mdl");
+		self.view_ofs = '0 0 22';
+		setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
+	// This took longer to create than I'd like to admit, but it was funny! - Fluffacorn
+
 	}
 	else
 		self.modelindex = modelindex_player;	// don't use eyes

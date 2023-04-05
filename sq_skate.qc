@@ -148,9 +148,8 @@ void() skate_fire =
 	//player must be onground and not standing
 	if (self.push_fast_time < time && self.flags & FL_ONGROUND && (self.velocity_x || self.velocity_y))
 	{
-	if (self.ammo_shells > PUSH_STAMINA_COST && self.board_falling == FALSE && self.trick != TRICK_GRIND)//don't push while falling
+	if (self.board_falling == FALSE && self.trick != TRICK_GRIND)//don't push while falling
 	{
-		self.ammo_shells = self.ammo_shells - PUSH_STAMINA_COST;
 		sound (self, CHAN_BODY, "player/skaterol.wav", 1, ATTN_NORM);
 		self.push_fast_time = time + 2;
 		self.walkframe = 20;
@@ -163,20 +162,60 @@ void() skate_fire =
 		sound (self, CHAN_VOICE, "player/plyrjmp8.wav", 1, ATTN_NORM);
 
 		//check key combinations first...
-		if(self.key_trick1 == TRUE && self.key_trick2 == TRUE)
+		if(self.key_trick4 == TRUE && self.invincible_finished != 0)
+		{
 			self.walkframe = 109;			//backside rotation
-		else if (self.key_trick1 == TRUE)
+			self.velocity_z = vlen(self.velocity_z) * 0 + 1300; // with pentagram, you get a hop
+		}
+		else if(self.key_trick4 == TRUE)
+		{
+			self.walkframe = 109;			//backside rotation
+		}
+		else if (self.key_trick1 == TRUE && self.invincible_finished != 0)
+		{
 			self.walkframe = 37;			//ollie grap
-		else if(self.key_trick2 == TRUE)
+			self.velocity_z = vlen(self.velocity_z) * 0 + 500; // with pentagram, you get a hop
+		}
+		else if (self.key_trick1 == TRUE)
+		{
+			self.walkframe = 37;			//ollie grap
+		}
+		else if(self.key_trick2 == TRUE && self.invincible_finished != 0)
+		{
 			self.walkframe = 44;			//front 180
-		else if(self.key_trick3 == TRUE)
+			self.velocity_z = vlen(self.velocity_z) * 0 + 600; // with pentagram, you get a hop
+		}
+		else if(self.key_trick2 == TRUE)
+		{
+			self.walkframe = 44;			//front 180
+		}
+		else if(self.key_trick3 == TRUE && self.invincible_finished != 0)
+		{
 			self.walkframe = 51;			//360 flip
-		else
+			self.velocity_z = vlen(self.velocity_z) * 0 + 700; // with pentagram, you get a hop
+		}
+		else if(self.key_trick3 == TRUE)
+		{
+			self.walkframe = 51;			//360 flip
+		}
+		else if(self.invincible_finished != 0)
+		{
 			self.walkframe = 27;			//Kickflip
-
+			self.velocity_z = vlen(self.velocity_z) * 0 + 400; // with pentagram, you get a hop
+		}
+		else
+		{
+			self.walkframe = 27;			//Kickflip
+		}
 		self.busting = TRUE;
-	}
-
+	} 
+	// This is the worst code I have ever, ever, written. I know the whole point of half of my code is to
+	// keep with the scuffed nature of Squirt's original code, but this is a whole other low. I spent an
+	// absurd amount of time attempting to get this to work and when I tried optimizing it, that shit
+	// stopped working, which has convinced me that this particular block of code is cursed by the ghost
+	// of Squirt. Ignore the fact that he's alive, because I have no other explanation for this. This was
+	// all done for LITERALLY NOTHING because it only comes into play when you have one of the least common
+	// powerups in the game, in both multiplayer DM and singleplayer campaigns. It was, however, very funny!
 };
 
 //--------			//Checks if self is on a rail
@@ -233,29 +272,6 @@ local float	rand_dmg;
 	self.jump_flag = 0;
 };
 
-float() check_wrong_direction =
-{
-	local vector	vec;
-	local vector	spot;
-	local float		dot;
-
-	if (self.spawn_time + 1 > time)		//player just respawned, exit
-		return FALSE;
-
-	spot = self.origin + (self.velocity * 0.15); //a spot where player will be in a short time
-	makevectors (self.angles);
-	vec = normalize (spot - self.origin);
-	dot = vec * v_forward;
-
-	if ( dot > -1)	//-0.1 : 0.3 the higher the number, the lower the degree spectrum
-	{
-		return FALSE;		//player looks in right direction
-	}
-	sprint(self, "If you see this, I fucked up somehow.");
-	return TRUE;
-};
-
-
 //-----------------------
 void() skate_land =
 //-----------------------
@@ -272,14 +288,14 @@ local float	fell;
 
 	if (self.watertype == CONTENT_WATER)
 		sound (self, CHAN_BODY, "player/h2ojump.wav", 1, ATTN_NORM);
-	else if (self.jump_flag < -650) //fell down
+	else if (self.jump_flag < -650 && self.invisible_finished == 0) //fell down
 	{
 		sprint(self, self.netname);
 		sprint(self, " fell down.\n");
 		self.trick = 0;			//no good landing no trick points !
 		fell = TRUE;
 	}
-	else if (check_wrong_direction() || self.busting || (self.grind_stop_time + 0.4 > time && !onrail()))
+	else if (self.busting || (self.grind_stop_time + 0.4 > time && !onrail()) && self.invisible_finished == 0)
 	{
 		self.trick = 0;			//no good landing no trick points !
 		fell = TRUE;
@@ -586,6 +602,11 @@ local float	fell;
 			self.diff_grinds = GRIND_BOARDSLIDE;
 			self.walkframe = 33;				//start boardsliding frames
 		}
+		else if (self.key_trick4 == TRUE)
+		{
+			self.diff_grinds = GRIND_BOARDSLIDE;
+			self.walkframe = 33;				//start boardsliding frames
+		}
 		else
 		{
 			self.diff_grinds = 0;
@@ -635,7 +656,7 @@ local float	fell;
 		}
 	}
 
-	if (fell == TRUE)
+	if (fell == TRUE && self.invisible_finished == 0)
 	{
 		skate_fall();
 	}
@@ -747,7 +768,7 @@ local vector 	new_vel;
 			}
 		}
 
-		if (!onrail() && (self.trick == TRICK_GRIND))
+		if (!onrail() && (self.trick == TRICK_GRIND) && self.invisible_finished == 0)
 		{
 			sprint(self,"You skipped a grind!\n");
 			self.jump_flag = -1000;
@@ -781,7 +802,7 @@ local vector 	new_vel;
 		//	self.busting = TRUE;
 		//}
 	}
-	else if (vlen(self.jump_vel) != 0)
+	else if (vlen(self.jump_vel) != 0 && self.super_time == 0)
 	{		//realistic jumping movement (player can't change direction)
 		self.velocity_x = self.jump_vel_x;				//don't change up or down movement
 		self.velocity_y = self.jump_vel_y;				//
