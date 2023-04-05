@@ -18,7 +18,7 @@ Help  | F1
 Trick 1 (Indy Grab)  | Shift
 Trick 2 (Pop Shove-it)  | Q
 Trick 3 (360 Shove-it)  | E
-Trick 4 (Backside 360)  | Shift + Q (Trick 1 + Trick 2)
+Trick 4 (Backside 360)  | R
 Toggle Cam (First Person)  | C
 Competition Start | M
 **~~Add Bot~~**| **~~B~~**
