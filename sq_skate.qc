@@ -8,7 +8,6 @@ void() switch_skating =
 
 		setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
 
-		W_SetCurrentAmmo();
 		sprint(self,"now walking\n");
 	}
 	else
@@ -19,7 +18,6 @@ void() switch_skating =
 
 		setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
 
-		W_SetCurrentAmmo();
 		sprint(self, "now skating\n");
 	}
 };
@@ -831,25 +829,6 @@ local float		old_health;
 		self.health_regen_time = time + 1;
 	}
 };
-
-//-----------------			I'm using ammo_shells as stamina.
-void() Regenerate_Stamina =
-//-----------------
-{
-	if (self.stamina_regen_time < time)
-	{
-		self.ammo_shells = self.ammo_shells + 100;
-
-		if (self.ammo_shells > 100)
-			self.ammo_shells = 100;
-
-		self.currentammo = self.ammo_shells;
-		self.items = self.items | IT_SHELLS;
-
-		self.stamina_regen_time = time + 0.1;
-	}
-};
-
 
 //-------------------
 void() water_die =
