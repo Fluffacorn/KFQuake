@@ -4,7 +4,6 @@ void() create_skill_changer;				//
 void() skate_land;					//
 void() skate_drive;					//
 void() Regenerate_Health;				//Squirt
-void() Regenerate_Stamina;				//
 void() comp_check_time;					//
 
 
@@ -59,10 +58,6 @@ void() SetChangeParms =
 	parm1 = self.items;
 	parm2 = self.health;
 	parm3 = self.armorvalue;
-	if (self.ammo_shells < 100)					//Squirt - stamina
-		parm4 = 100;
-	else
-		parm4 = self.ammo_shells;
 	parm5 = self.ammo_nails;
 	parm6 = self.ammo_rockets;
 	parm7 = self.ammo_cells;
@@ -75,7 +70,7 @@ void() SetNewParms =
 	parm1 = IT_SHOTGUN | IT_AXE;
 	parm2 = 100;
 	parm3 = 0;
-	parm4 = 100;				//Squirt - start with 100 stamina
+	parm4 = 0;				//Squirt - start with 100 stamina | Fluffacorn - removed stamina
 	parm5 = 0;
 	parm6 = 0;
 	parm7 = 0;
@@ -1227,7 +1222,6 @@ void() PlayerPostThink =
 	CheckPowerups ();
 
 	Regenerate_Health();							//Squirt
-	Regenerate_Stamina();							//Squirt
 	comp_check_time();							//
 	if (self.board_falling == TRUE && self.pausetime > time)
 	{
