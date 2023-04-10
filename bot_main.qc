@@ -785,7 +785,6 @@ local entity	temp_goal;
 		bot_grab_items();
 
 	Regenerate_Health();					//Squirt
-	Regenerate_Stamina();					//Squirt
 
 	if ((self.busting == TRUE) && (self.flags & FL_ONGROUND))	//Squirt- land before finishing
 	{										//the trick
