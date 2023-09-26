@@ -2,7 +2,7 @@
 
 ***A mod to change the small flaws in Kickflip Quake*** 
 
-*I made this because I enjoy Kickflip Quake too much to leave it's simple flaws in place. Note that this was designed with  [FTEQuake](https://fte.triptohell.info/downloads "Download it here!") in mind, and all releases are intended for use with it. I will not provide assistance for other clients, I simply don't have the time to.*
+*I made this because I enjoy Kickflip Quake too much to leave its simple flaws in place. Note that this was designed with  [FTEQuake](https://fte.triptohell.info/downloads "Download it here!") in mind, and all releases are intended for use with it. I will not provide assistance for other clients, I simply don't have the time to.*
 
 [**All known tech can be viewed on the wiki page, along with the changes I've made to the mod**](https://github.com/Fluffacorn/KFQuake/wiki)
 
