@@ -51,6 +51,8 @@ void() PlaceItem =
 		remove(self);
 		return;
 	}
+
+	// remove(self);				Squirt - no items !! >:-) | Fluff - YES ITEMS WHAT WAS COOKING HERE 
 };
 
 /*
@@ -513,6 +515,7 @@ void() weapon_supershotgun =
 	self.touch = weapon_touch;
 	setsize(self, '-16 -16 0', '16 16 56');
 	StartItem();
+	remove (self); // I'm removing weapons for now because you can't use them. - Fluffacorn
 };
 
 /*QUAKED weapon_nailgun (0 .5 .8) (-16 -16 0) (16 16 32)
@@ -527,6 +530,7 @@ void() weapon_nailgun =
 	self.touch = weapon_touch;
 	setsize(self, '-16 -16 0', '16 16 56');
 	StartItem();
+	remove (self); // I'm removing weapons for now because you can't use them. - Fluffacorn
 };
 
 /*QUAKED weapon_supernailgun (0 .5 .8) (-16 -16 0) (16 16 32)
@@ -541,6 +545,7 @@ void() weapon_supernailgun =
 	self.touch = weapon_touch;
 	setsize(self, '-16 -16 0', '16 16 56');
 	StartItem();
+	remove (self); // I'm removing weapons for now because you can't use them. - Fluffacorn
 };
 
 /*QUAKED weapon_grenadelauncher (0 .5 .8) (-16 -16 0) (16 16 32)
@@ -555,6 +560,7 @@ void() weapon_grenadelauncher =
 	self.touch = weapon_touch;
 	setsize(self, '-16 -16 0', '16 16 56');
 	StartItem();
+	remove (self); // I'm removing weapons for now because you can't use them. - Fluffacorn
 };
 
 /*QUAKED weapon_rocketlauncher (0 .5 .8) (-16 -16 0) (16 16 32)
@@ -569,6 +575,7 @@ void() weapon_rocketlauncher =
 	self.touch = weapon_touch;
 	setsize(self, '-16 -16 0', '16 16 56');
 	StartItem();
+	remove (self); // I'm removing weapons for now because you can't use them. - Fluffacorn
 };
 
 
@@ -584,6 +591,7 @@ void() weapon_lightning =
 	self.touch = weapon_touch;
 	setsize(self, '-16 -16 0', '16 16 56');
 	StartItem();
+	remove (self); // I'm removing weapons for now because you can't use them. - Fluffacorn
 };
 
 
@@ -711,6 +719,7 @@ void() item_shells =
 	self.netname = "shells";
 	setsize(self, '0 0 0', '32 32 56');
 	StartItem();
+	remove (self); // I'm removing weapons for now because you can't use them. - Fluffacorn
 };
 
 /*QUAKED item_spikes (0 .5 .8) (0 0 0) (32 32 32) big
@@ -736,6 +745,7 @@ void() item_spikes =
 	self.netname = "nails";
 	setsize(self, '0 0 0', '32 32 56');
 	StartItem();
+	remove (self); // I'm removing weapons for now because you can't use them. - Fluffacorn
 };
 
 /*QUAKED item_rockets (0 .5 .8) (0 0 0) (32 32 32) big
@@ -761,6 +771,7 @@ void() item_rockets =
 	self.netname = "rockets";
 	setsize(self, '0 0 0', '32 32 56');
 	StartItem();
+	remove (self); // I'm removing weapons for now because you can't use them. - Fluffacorn
 };
 
 
@@ -787,6 +798,7 @@ void() item_cells =
 	self.netname = "cells";
 	setsize(self, '0 0 0', '32 32 56');
 	StartItem();
+	remove (self); // I'm removing weapons for now because you can't use them. - Fluffacorn
 };
 
 
@@ -1168,6 +1180,7 @@ void() item_artifact_envirosuit =
 	self.items = IT_SUIT;
 	setsize(self, '-16 -16 -24', '16 16 32');
 	StartItem();
+	remove (self); // I'm removing weapons for now because you can't use them. - Fluffacorn
 };
 
 
