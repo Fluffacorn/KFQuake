@@ -176,8 +176,6 @@ void() worldspawn =
 	lastspawn = world;
 	InitBodyQue ();
 
-	clientInitMaxClients();					//Squirt - scoreboard
-
 	create_music();						//Squirt - music !
 
 // custom map attributes

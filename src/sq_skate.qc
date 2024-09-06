@@ -1,3 +1,7 @@
+//we have to add this or else bots can't be removed. I do not like the bot feature.
+// This feature is horrible, so horrible that I am genuinely unsure if it EVER worked at ANY point in time.
+void() water_die; 
+
 void() switch_skating =
 {
 	if (self.skating)			//already skating
@@ -575,7 +579,6 @@ local float	fell;
 
 
 		self.frags = self.frags + trick_points;
-		msgUpdateFragsToAll (self.fClientNo, self.frags);
 
 		self.trick = 0;			//reset
 		self.second_trick = 0;		//

@@ -695,19 +695,11 @@ float(entity targ, entity inflictor) CanDamage;
 //----------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------	Squirt	------------------------------------------------------------
 
-float	wp_num;
-float	bot_num;
+//float	wp_num;
 //----------------talking
 .float	talk_time;
 .float	talk_subject;
 .string	talk_name;
-
-float	bot_talk_tries;		//10 bots will not talk all the time
-
-//----------------skill
-.float	bot_skill;
-float	change_skill;
-float	b_skill;			//normal skill is always changed
 
 //----------------combat
 .float	want_fight;
@@ -715,10 +707,6 @@ float	b_skill;			//normal skill is always changed
 .entity	walkitem;
 .float	slowthink;		//Slow thinking
 .float	flee_time;
-
-//-----------------teamplay
-.entity	bot_follow;
-.float	bot_follow_time;
 
 //----------------breathing
 .float	last_dive;			//swimming and diving

@@ -8,8 +8,6 @@ combat.qc
 items.qc
 weapons.qc
 
-bot_rank.qc
-
 world.qc
 client.qc
 player.qc
@@ -19,8 +17,6 @@ buttons.qc
 triggers.qc
 plats.qc
 misc.qc
-
-bot_main.qc
 
 sq_cam.qc
 sq_skate.qc

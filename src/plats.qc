@@ -72,18 +72,11 @@ void() plat_go_up =
 
 void() plat_center_touch =
 {
-	if (other.classname != "player" && other.classname != "bot")
+	if (other.classname != "player")
 		return;
 		
 	if (other.health <= 0)
 		return;
-	
-	if (other.classname == "bot" && time > other.pausetime + 5)
-	{
-		//other.think = other.th_stand;		//wait a bit
-		//other.nextthink = time + 0.1;
-		other.pausetime = time + 1;
-	}
 
 	self = self.enemy;
 	if (self.state == STATE_BOTTOM)
@@ -94,7 +87,7 @@ void() plat_center_touch =
 
 void() plat_outside_touch =
 {
-	if (other.classname != "player"&& other.classname != "bot")
+	if (other.classname != "player")
 		return;
 
 	if (other.health <= 0)

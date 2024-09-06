@@ -155,7 +155,7 @@ void() health_touch =
 	//local	float amount;
 	local	string	s;
 	
-	if (other.classname != "player" && other.classname != "bot")			//Squirt
+	if (other.classname != "player")			//Squirt
 		return;
 	
 	if (self.healtype == 2) // Megahealth?  Ignore max_health...
@@ -248,7 +248,7 @@ void() armor_touch =
 	
 	if (other.health <= 0)
 		return;
-	if (other.classname != "player" && other.classname != "bot")				//Squirt
+	if (other.classname != "player")				//Squirt
 		return;
 
 	if (self.classname == "item_armor1")
@@ -630,7 +630,7 @@ void() ammo_touch =
 local entity	stemp;
 local float		best;
 
-	if (other.classname != "player" && other.classname != "bot")			//Squirt
+	if (other.classname != "player")			//Squirt
 		return;
 	if (other.health <= 0)
 		return;
@@ -1127,7 +1127,7 @@ void() powerup_touch =
 //local entity	stemp;
 //local float		best;
 
-	if (other.classname != "player" && other.classname != "bot")
+	if (other.classname != "player")
 		return;
 	if (other.health <= 0)
 		return;
@@ -1289,7 +1289,7 @@ void() BackpackTouch =
 	local	float	best;
 	local		entity	stemp;
 	
-	if (other.classname != "player" && other.classname != "bot")		//Squirt
+	if (other.classname != "player")		//Squirt
 		return;
 	if (other.health <= 0)
 		return;

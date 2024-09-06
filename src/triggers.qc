@@ -81,11 +81,11 @@ void() multi_use =
 
 void() multi_touch =
 {
-	if (other.classname != "player" && other.classname != "bot")			//Squirt
+	if (other.classname != "player")			//Squirt
 		return;
 	
 // if the trigger has an angles field, check player's facing direction
-	if (self.movedir != '0 0 0' && other.classname != "bot")				//Squirt
+	if (self.movedir != '0 0 0')				//Squirt
 	{
 		makevectors (other.angles);
 		if (v_forward * self.movedir < 0)
@@ -322,11 +322,11 @@ void() tdeath_touch =
 		return;
 
 // frag anyone who teleports in on top of an invincible player
-	if (other.classname == "player" || other.classname == "bot")				//Squirt
+	if (other.classname == "player")				//Squirt
 	{
 		if (other.invincible_finished > time)
 			self.classname = "teledeath2";
-		if (self.owner.classname != "player" && self.owner.classname != "bot")		//Squirt
+		if (self.owner.classname != "player")		//Squirt
 		{	// other monsters explode themselves
 			T_Damage (self.owner, self, self, 50000);
 			return;
@@ -409,7 +409,7 @@ local vector	org;
 
 	setorigin (other, t.origin);
 	other.angles = t.mangle;
-	if (other.classname == "player" || other.classname == "bot")
+	if (other.classname == "player")
 	{
 		other.fixangle = 1;		// turn this way immediately
 		other.teleport_time = time + 0.7;

@@ -195,7 +195,7 @@ Prints messages and opens key doors
 */
 void() door_touch =
 {
-	if (other.classname != "player" && other.classname != "bot")			//Squirt
+	if (other.classname != "player")			//Squirt
 		return;
 	if (self.owner.attack_finished > time)
 		return;
