@@ -578,7 +578,7 @@ void () fd_secret_use =
 	
 	if (!(self.spawnflags & SECRET_NO_SHOOT))
 	{
-		//self.th_pain = SUB_Null;
+		self.th_pain = SUB_null_pain;
 		self.takedamage = DAMAGE_NO;
 	}
 	self.velocity = '0 0 0';
@@ -610,6 +610,11 @@ void () fd_secret_use =
 	self.dest2 = self.dest1 + v_forward * self.t_length;
 	SUB_CalcMove(self.dest1, self.speed, fd_secret_move1);
 	sound(self, CHAN_VOICE, self.noise2, 1, ATTN_NORM);
+};
+
+void(entity attacker, float damage) fd_secret_pain =
+{
+	fd_secret_use();
 };
 
 // Wait after first movement...
@@ -665,7 +670,7 @@ void () fd_secret_done =
 	{
 		self.health = 10000;
 		self.takedamage = DAMAGE_YES;
-		//self.th_pain = fd_secret_use;	
+		self.th_pain = fd_secret_pain;	
 	}
 	sound(self, CHAN_VOICE, self.noise3, 1, ATTN_NORM);
 };
@@ -769,7 +774,8 @@ void () func_door_secret =
 	{
 		self.health = 10000;
 		self.takedamage = DAMAGE_YES;
-		//self.th_pain = fd_secret_use;
+		self.th_pain = fd_secret_pain;
+		self.th_die = fd_secret_use;
 	}
 	self.oldorigin = self.origin;
 	if (!self.wait)

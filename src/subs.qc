@@ -4,6 +4,7 @@ void() SUB_Null = {};
 
 void() SUB_Remove = {remove(self);};
 
+void(entity attacker, float damage) SUB_null_pain = {};
 
 /*
 QuakeEd only writes a single float for angles (bad idea), so up and down are
