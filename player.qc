@@ -554,7 +554,7 @@ void() GibPlayer =
 
 void() PlayerDie =
 {
-	local	float	i;
+	//local	float	i;
 	
 	self.items = self.items - (self.items & IT_INVISIBILITY);
 	self.invisible_finished = 0;	// don't die as eyes
@@ -581,6 +581,7 @@ void() PlayerDie =
 		return;
 	//}
 
+	/*
 	DeathSound();
 	
 	self.angles_x = 0;
@@ -606,6 +607,7 @@ void() PlayerDie =
 		player_died1();
 	else
 		player_diee1();
+		*/
 
 };
 

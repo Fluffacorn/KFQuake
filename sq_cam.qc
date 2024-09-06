@@ -3,7 +3,7 @@ void() cam_think =
 // ------------------------
 {
 local vector	view_org;
-local vector	start;
+//local vector	start;
 local vector	calc_dir;
 local float		limited_angle;
 

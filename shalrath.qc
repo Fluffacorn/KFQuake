@@ -230,7 +230,7 @@ void() monster_shalrath =
 	self.th_walk = shal_walk1;
 	self.th_run = shal_run1;
 	self.th_die = shalrath_die;
-	self.th_pain = shalrath_pain;
+	//self.th_pain = shalrath_pain;
 	self.th_missile = shal_attack1;
 
 	self.think = walkmonster_start;

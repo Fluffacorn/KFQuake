@@ -140,6 +140,7 @@ entity() FindIntermission =
 		return spot;
 
 	objerror ("FindIntermission: no spot");
+	return world;
 };
 
 
@@ -306,7 +307,7 @@ void() execute_changelevel =
 
 void() changelevel_touch =
 {
-	local entity	pos;
+	//local entity	pos;
 
 	if (other.classname != "player")
 		return;
@@ -521,7 +522,7 @@ void() PutClientInServer =
 	W_SetCurrentAmmo ();
 
 	self.attack_finished = time;
-	self.th_pain = player_pain;
+	//self.th_pain = player_pain;
 	self.th_die = PlayerDie;
 
 	self.deadflag = DEAD_NO;
@@ -736,7 +737,7 @@ void() CheckRules =
 
 void() PlayerDeathThink =
 {
-	local entity	old_self;
+	//local entity	old_self;
 	local float		forward;
 
 	if ((self.flags & FL_ONGROUND))
@@ -771,7 +772,7 @@ void() PlayerDeathThink =
 
 void() PlayerJump =
 {
-	local vector start, end;
+	//local vector start, end;
 
 	if (self.flags & FL_WATERJUMP)
 		return;
@@ -818,7 +819,7 @@ void() PlayerJump =
 	else
 	{
 		if (self.board_falling == FALSE)				//jumping costs health now !
-		{;
+		{
 		sound (self, CHAN_BODY, "player/skatejmp.wav", 1, ATTN_NORM);
 		self.velocity_z = self.velocity_z + 270;					//Squirt- 370 : 270
 		self.jump_vel = self.velocity;	//save the initial jump velocity
@@ -957,8 +958,8 @@ Called every frame before physics are run
 */
 void() PlayerPreThink =
 {
-	local	float	mspeed, aspeed;
-	local	float	r;
+	//local	float	mspeed, aspeed;
+	//local	float	r;
 
 	if (intermission_running)
 	{
@@ -1181,8 +1182,8 @@ Called every frame after physics are run
 */
 void() PlayerPostThink =
 {
-	local	float	mspeed, aspeed;
-	local	float	r;
+	//local	float	mspeed, aspeed;
+	//local	float	r;
 	local entity a_wp;					//
 
 	if (self.view_ofs == '0 0 0')

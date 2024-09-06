@@ -152,7 +152,7 @@ void() item_health =
 
 void() health_touch =
 {
-	local	float amount;
+	//local	float amount;
 	local	string	s;
 	
 	if (other.classname != "player" && other.classname != "bot")			//Squirt
@@ -915,8 +915,8 @@ KEYS
 
 void() key_touch =
 {
-local entity	stemp;
-local float		best;
+//local entity	stemp;
+//local float		best;
 
 	if (other.classname != "player")
 		return;
@@ -1051,8 +1051,8 @@ END OF LEVEL RUNES
 
 void() sigil_touch =
 {
-local entity	stemp;
-local float		best;
+//local entity	stemp;
+//local float		best;
 
 	if (other.classname != "player")
 		return;
@@ -1124,8 +1124,8 @@ void() powerup_touch;
 
 void() powerup_touch =
 {
-local entity	stemp;
-local float		best;
+//local entity	stemp;
+//local float		best;
 
 	if (other.classname != "player" && other.classname != "bot")
 		return;
@@ -1218,6 +1218,7 @@ void() item_artifact_envirosuit =
 	remove(self);				//Squirt
 	return;					//
 
+	/*
 	self.touch = powerup_touch;
 
 	precache_model ("progs/suit.mdl");
@@ -1229,6 +1230,7 @@ void() item_artifact_envirosuit =
 	self.items = IT_SUIT;
 	setsize (self, '-16 -16 -24', '16 16 32');
 	StartItem ();
+	*/
 };
 
 

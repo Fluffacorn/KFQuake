@@ -871,6 +871,6 @@ local float sq_dmg;
 			self.deathtype = "lava";
 		else if(m == CONTENT_SLIME)
 			self.deathtype = "slime";
-; //removed the functioned that insta killed you in liquids. You will still take damage from slime and lava, to be clear.
+ //removed the functioned that insta killed you in liquids. You will still take damage from slime and lava, to be clear.
 	}
 };

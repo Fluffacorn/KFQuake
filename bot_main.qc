@@ -1392,7 +1392,7 @@ void() gib_bot =
 void() bot_die =
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 {
-local float i;
+	//local float i;
 
 // we're turning the bot off here and playing his death scene
 
@@ -1410,7 +1410,7 @@ local float i;
 	//	}
 	
 	//DeathSound();
-	bot_deathsound();
+	/*bot_deathsound();
 
 	//setmodel(self, "progs/player.mdl");
 	//setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
@@ -1427,7 +1427,7 @@ local float i;
 		bot_died1();
 	else
 		bot_diee1();
-	
+	*/
 };
 
 
@@ -1592,7 +1592,8 @@ local entity plr;
 void(float teem) create_bot =
 // ------------------------------------------------
 {
-local entity bot, spot, plr,temps;
+//local entity bot, spot, plr,temps;
+local entity bot, spot;
 
 	bot_num = bot_num + 1;
 	if (bot_num > 15)
@@ -1857,7 +1858,7 @@ void() create_skill_changer =
 
 void() switch_change_skill =
 {
-local entity	bot;
+//local entity	bot;
 
 	if (change_skill == FALSE)
 	{

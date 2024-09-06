@@ -303,7 +303,7 @@ float()	CheckDogJump =
 
 float()	DogCheckAttack =
 {
-	local	vector	vec;
+	//local	vector	vec;
 	
 // if close enough for slashing, go for it
 	if (CheckDogMelee ())
@@ -354,7 +354,7 @@ void() monster_dog =
 	self.th_stand = dog_stand1;
 	self.th_walk = dog_walk1;
 	self.th_run = dog_run1;
-	self.th_pain = dog_pain;
+	//self.th_pain = dog_pain;
 	self.th_die = dog_die;
 	self.th_melee = dog_atta1;
 	self.th_missile = dog_leap1;
