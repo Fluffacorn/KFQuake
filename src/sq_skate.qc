@@ -650,13 +650,14 @@ local float	fell;
 		}
 		sprint(self, "!\n");
 
-		if (trick_points > 1)
-		{
-			if (random() < 0.5)
-				sound (self, CHAN_ITEM, "player/yeah1.wav", 1, ATTN_NORM);
-			else
-				sound (self, CHAN_ITEM, "player/yeah2.wav", 1, ATTN_NORM);
-		}
+		// this controls the yeah sound effect. I don't like it, so I don't even include the file
+		//if (trick_points > 1)
+		//{
+		//	if (random() < 0.5)
+		//		sound (self, CHAN_ITEM, "player/yeah1.wav", 1, ATTN_NORM);
+		//	else
+		//		sound (self, CHAN_ITEM, "player/yeah2.wav", 1, ATTN_NORM);
+		//}
 	}
 
 	if (fell == TRUE && self.invisible_finished == 0)
