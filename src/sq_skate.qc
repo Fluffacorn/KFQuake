@@ -1,7 +1,5 @@
-//we have to add this or else bots can't be removed. I do not like the bot feature.
-// This feature is horrible, so horrible that I am genuinely unsure if it EVER worked at ANY point in time.
-void() water_die; 
-
+void() water_die;	 	//we have to add this or else bots can't be removed. I do not like the bot feature.
+						// This feature is horrible, so horrible that I am genuinely unsure if it EVER worked at ANY point in time.
 void() switch_skating =
 {
 	if (self.skating)			//already skating
@@ -12,7 +10,6 @@ void() switch_skating =
 
 		setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
 
-		W_SetCurrentAmmo();
 		sprint(self,"now walking\n");
 	}
 	else
@@ -23,7 +20,6 @@ void() switch_skating =
 
 		setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
 
-		W_SetCurrentAmmo();
 		sprint(self, "now skating\n");
 	}
 };
@@ -60,6 +56,7 @@ local float		new_trick;
 						//	98-104 damage
 						//	105-108 backside boardslide
 						//	109-119 backside 360 rotation
+						//	120-125 50-50 grind
 
 	if (self.walkframe == 12 || self.walkframe == 19)
 	{
@@ -77,7 +74,19 @@ local float		new_trick;
 	{
 		self.walkframe = 0;
 	}
+	if(self.walkframe == 130)
+	{
+		self.walkframe = 0;
+	}
 
+	if (self.walkframe == 120 || self.walkframe == 121 || self.walkframe == 122 || self.walkframe == 123 || self.walkframe == 124 || self.walkframe == 125 && self.flags & FL_ONGROUND) // testing for the invidiual walkframes is significantly less buggy and more consistent than testing for the GRIND_50 state It'll throw an error, though. 
+	{
+		if(self.button0 == TRUE)	//I would need to rewrite the trick code to fix this, I'm not doing that! If you want to remove this error, I'd recommend removing the boost function of the grind.
+		{
+			self.velocity_z = vlen(self.velocity_z) * 0 + 500; // When you press the fire key while doing a 5-0 grind, you get a hop;
+			self.diff_grinds = GRIND_NORMAL; // Resets the grind state after the jump is performed.
+		}
+	}
 
 	if (self.walkframe == 31)
 	{
@@ -131,6 +140,8 @@ local float		new_trick;
 	if (self.walkframe == 108)
 		self.walkframe = 105;		//replay grind animation
 
+	if (self.walkframe == 125)
+	self.walkframe = 120;		//replay 5-0 grind animation
 
 	if (self.walkframe <= 97 && self.walkframe >= 62 )
 	{
@@ -166,16 +177,7 @@ void() skate_fire =
 		sound (self, CHAN_VOICE, "player/plyrjmp8.wav", 1, ATTN_NORM);
 
 		//check key combinations first...
-		if(self.key_trick4 == TRUE && self.invincible_finished != 0)
-		{
-			self.walkframe = 109;			//backside rotation
-			self.velocity_z = vlen(self.velocity_z) * 0 + 1300; // with pentagram, you get a hop
-		}
-		else if(self.key_trick4 == TRUE)
-		{
-			self.walkframe = 109;			//backside rotation
-		}
-		else if (self.key_trick1 == TRUE && self.invincible_finished != 0)
+		if (self.key_trick1 == TRUE && self.invincible_finished != 0)
 		{
 			self.walkframe = 37;			//ollie grap
 			self.velocity_z = vlen(self.velocity_z) * 0 + 500; // with pentagram, you get a hop
@@ -201,6 +203,14 @@ void() skate_fire =
 		else if(self.key_trick3 == TRUE)
 		{
 			self.walkframe = 51;			//360 flip
+		}
+		else if(self.key_trick4 == TRUE && self.invincible_finished != 0)
+		{
+			self.walkframe = 109;			//360 flip
+		}
+		else if(self.key_trick4 == TRUE)
+		{
+			self.walkframe = 109;			//backside rotation
 		}
 		else if(self.invincible_finished != 0)
 		{
@@ -344,7 +354,7 @@ local float	fell;
 				}
 			}
 		}
-		else if (self.trick == TRICK_GRIND)//also used for boardslide
+		else if (self.trick == TRICK_GRIND)//also used for boardslide and 5-0 grind
 		{
 			trick_points = 1;
 			if (self.diff_grinds == GRIND_NORMAL)
@@ -443,7 +453,34 @@ local float	fell;
 				}
 				}
 			}
+		else if (self.diff_grinds == GRIND_50)
+		{
+			trick_name = "5-0 Grind";
+			switch(self.second_trick)
+			{
+			case TRICK_KICKFLIP:
+				trick_points = 2;
+				trick_name = "5-0 Grind to Kickflip";
+				break;
+			case TRICK_GRAP:
+				trick_points = 3;
+				trick_name = "5-0 Grind to Indy Grab";
+				break;
+			case TRICK_FRONTONEEIGHTY:
+				trick_points = 3;
+				trick_name = "5-0 Grind to Pop Shove-it";
+				break;
+			case TRICK_THREESIXFLIP:
+				trick_points = 4;
+				trick_name = "5-0 Grind to 360 Shove-it";
+				break;
+			case TRICK_BACKROT:
+				trick_points = 4;
+				trick_name = "5-0 Grind to Backside 360";
+				break;
+			}
 		}
+	}
 		else if (self.trick == TRICK_GRAP)
 		{
 			trick_points = 1;
@@ -607,8 +644,8 @@ local float	fell;
 		}
 		else if (self.key_trick4 == TRUE)
 		{
-			self.diff_grinds = GRIND_BOARDSLIDE;
-			self.walkframe = 33;				//start boardsliding frames
+			self.diff_grinds = GRIND_50;
+			self.walkframe = 120;				//start 5-0 grind frames
 		}
 		else
 		{
@@ -646,6 +683,10 @@ local float	fell;
 			else if(self.diff_grinds == GRIND_BACKBOARDSLIDE)
 			{
 				sprint(self, " to Backside Boardslide");	//......
+			}
+			else if(self.diff_grinds == GRIND_50)
+			{
+				sprint(self, " to a 5-0 Grind!");	//......
 			}
 		}
 		sprint(self, "!\n");
@@ -836,23 +877,23 @@ local float		old_health;
 	}
 };
 
-//-----------------			I'm using ammo_shells as stamina.
-void() Regenerate_Stamina =
-//-----------------
-{
-	if (self.stamina_regen_time < time)
-	{
-		self.ammo_shells = self.ammo_shells + 100;
-
-		if (self.ammo_shells > 100)
-			self.ammo_shells = 100;
-
-		self.currentammo = self.ammo_shells;
-		self.items = self.items | IT_SHELLS;
-
-		self.stamina_regen_time = time + 0.1;
-	}
-};
+//-----------------			I'm using ammo_shells as stamina. 
+//void() Regenerate_Stamina =
+//----------------- 		no you NOT!!
+//{
+//	if (self.stamina_regen_time < time)
+//	{
+//		self.ammo_shells = self.ammo_shells + 100;
+//
+//		if (self.ammo_shells > 100)
+//			self.ammo_shells = 100;
+//
+//		self.currentammo = self.ammo_shells;
+//		self.items = self.items | IT_SHELLS;
+//
+//		self.stamina_regen_time = time + 0.1;
+//	}
+//};
 
 
 //-------------------

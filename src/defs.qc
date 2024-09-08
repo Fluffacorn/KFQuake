@@ -757,6 +757,7 @@ float TRICK_BACKROT = 6;
 float GRIND_NORMAL = 1;			//looks like no animation
 float GRIND_BOARDSLIDE = 2;
 float GRIND_BACKBOARDSLIDE = 3;
+float GRIND_50 = 4;
 
 
 //Music
