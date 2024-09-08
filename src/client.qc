@@ -46,8 +46,7 @@ void() SetChangeParms =
 	}
 
 // remove items
-	self.items = self.items - (self.items &
-	(IT_KEY1 | IT_KEY2 | IT_INVISIBILITY | IT_INVULNERABILITY | IT_SUIT | IT_QUAD) );
+	self.items -= self.items & (IT_KEY1 | IT_KEY2 | IT_INVISIBILITY | IT_INVULNERABILITY | IT_SUIT | IT_QUAD);
 
 // cap super health
 	if (self.health > 100)
@@ -84,10 +83,8 @@ void() SetNewParms =
 void() DecodeLevelParms =
 {
 	if (serverflags)
-	{
 		if (world.model == "maps/start.bsp")
-			SetNewParms ();		// take away all stuff on starting new episode
-	}
+			SetNewParms ();	 // take away all stuff on starting new episode
 
 	self.items = parm1;
 	self.health = parm2;
@@ -98,6 +95,11 @@ void() DecodeLevelParms =
 	self.ammo_cells = parm7;
 	self.weapon = parm8;
 	self.armortype = parm9 * 0.01;
+	
+	    // man I do wish there was something like this:
+        // findall(world, classname, "item_whateverIWantToFind")
+        // but instead I had to write the remove_kind (sq_remove_items.qc)
+        // :) | thank you for doing this so that I may continue to never think about items - Fluffacorn
 };
 
 /*
