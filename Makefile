@@ -1,4 +1,4 @@
-MOD_NAME = sqate
+MOD_NAME = KFQuake
 
 all: build
 
