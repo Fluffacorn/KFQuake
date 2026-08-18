@@ -1,0 +1,70 @@
+===========================================================================
+Title                   : sq_brick-world
+Filename                : sq_brick-world.bsp
+Release date            : 2025-02-04
+Author                  : tvnalad/tunalad
+Email Address           : tunalad@proton.me
+Other Files By Author   : ladder.wad
+Misc. Author Info       :
+
+Description             : This map is a port of CS 1.6 map `rayish_brick-world`, swapped with default quake textures.
+                          Made for SQATE (Kickflip mod fork) `https://github.com/tunalad/sqate`
+                          FOR THE LADDERS TO WORK `sq_skip_stair 1` IS REQUIRED
+
+Additional Credits to   : whoever made the original ladder texture used in 1.6
+===========================================================================
+* What is included *
+
+New levels              : Yes
+Sounds                  : No
+Music                   : No
+Graphics                : Yes
+Other                   : No
+Other files required    : ladder.wad (comes with the map)
+
+
+* Play Information *
+
+Single Player           : Player starts only
+Cooperative 2-4 Player  : No
+Deathmatch 2-4 Player   : Player starts only (SQATE competition mode)
+Difficulty Settings     : Not implemented
+
+
+* Construction *
+
+Base                    : Modified `rayish_brick-world` (https://gamebanana.com/mods/93321)
+Build Time              : idk, few seconds due to leaving an intentional leak
+Editor(s) used          :
+                          - trenchbroom (map editor)
+                                https://trenchbroom.github.io/
+                          - qthon (wad editor)
+                                https://github.com/tunalad/qthon
+                          - texmex (to convert wad3 textures to wad2)
+                                https://valvedev.info/tools/texmex/
+                          - winbspc (to decompile original .bsp to .map)
+                                https://gamebanana.com/tools/5030
+                          - bsp texture tools (to extract original map's textures (not included with this map))
+                                https://gamebanana.com/tools/5900
+Known Bugs              : IF NOT YET OBVIOUS, THERE'S AN INTENTIONAL LEAK LEFT IN THE MAP
+May Not Run With        : with engines that have a problem with maps having leaks
+Tested With             : vkquake, fteqw, darkplaces
+
+
+
+* Copyright / Permissions *
+
+Authors (MAY/may NOT) use the contents of this file as a base for
+modification or reuse.  Permissions have been obtained from original
+authors for any of their resources modified or included in this file.
+
+You MAY distribute this file, provided you include this text file, with
+no modifications.  You may distribute this file in any electronic
+format (BBS, Diskette, CD, etc) as long as you include this file
+intact.
+
+
+* Where to get the file that this text file describes *
+
+Web sites: https://github.com/tunalad/sqate
+FTP sites:
