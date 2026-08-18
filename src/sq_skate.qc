@@ -204,9 +204,11 @@ void() skate_fire =
                                 self.velocity_z = 1300;
                 }
                 else
+                {
                         self.walkframe = 27; // Kickflip
                         if (self.invincible_finished != 0)  // pentagram jump
 				self.velocity_z = 400;
+                }
 
                 self.busting = TRUE;
         }
