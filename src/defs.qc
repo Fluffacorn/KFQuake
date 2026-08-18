@@ -775,6 +775,7 @@ float TRICK_MONSTERJUMP = 7;
 float GRIND_NORMAL = 1; // looks like no animation
 float GRIND_BOARDSLIDE = 2;
 float GRIND_BACKBOARDSLIDE = 3;
+float GRIND_50 = 4;
 
 //Competition status...
 float comp_started;
@@ -787,6 +788,7 @@ float RM_RUNE = 4;
 float RM_SUIT = 8;
 float RM_HP = 16;
 float RM_AMMO = 32;
+float RM_KEYITEMS = 64;
 
 // SQATE server related cvars (that require server restarting)
 float sq_stamina;
