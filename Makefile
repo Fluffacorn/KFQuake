@@ -6,7 +6,7 @@ build:
 	@echo "Building 'progs.dat' file."
 	@echo -e "\tBuilding process requires you to have fteqcc64, you can get it here:"
 	@echo -e "\thttps://fte.triptohell.info/downloads"
-	fteqcc64 -src src/ -o progs.dat
+	./fteqcc64 -src src/ -o progs.dat
 
 package: build
 	@echo "Packaging mod in '$(MOD_NAME)' directory."
