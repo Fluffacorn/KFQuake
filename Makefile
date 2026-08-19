@@ -4,9 +4,10 @@ all: build
 
 build:
 	@echo "Building 'progs.dat' file."
-	@echo -e "\tBuilding process requires you to have fteqcc64, you can get it here:"
-	@echo -e "\thttps://fte.triptohell.info/downloads"
-	./fteqcc64 -src src/ -o progs.dat
+	./tools/fteqcc64 -src src/ -o progs.dat
+	
+format:
+	find src/ -name '*.qc' -exec ./tools/qcstyle --style=quakec -n -s8 {} +
 
 package: build
 	@echo "Packaging mod in '$(MOD_NAME)' directory."
@@ -18,4 +19,4 @@ clean:
 	command rm progs.lno progs.dat
 	command rm -rf $(MOD_NAME)
 
-.PHONY: all build package clean
+.PHONY: all build format package clean
