@@ -98,8 +98,8 @@ void(entity item) remove_kind =
 
                 // keyitems
                 (itr[6] && (item.classname == "item_key1" ||
-                        item.classname == "item_key2" ||
-                        item.classname == "item_sigil"))
+                            item.classname == "item_key2" ||
+                            item.classname == "item_sigil"))
         )
                 remove(item);
 }
