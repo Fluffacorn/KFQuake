@@ -78,7 +78,7 @@ void() SetNewParms =
         parm8 = 1;
         parm9 = 0;
 
-        if (sq_stamina) parm4 = 100; // Squirt - start with 100 stamina
+        if (cvar("sq_stamina")) parm4 = 100; // Squirt - start with 100 stamina
 };
 
 void() DecodeLevelParms =
@@ -108,6 +108,7 @@ void() DecodeLevelParms =
         if (cvar("sq_fail_damage")) sq_fail_damage = TRUE;
         if (cvar("sq_sidedrop")) sq_sidedrop = TRUE;
         if (cvar("sq_monsterjump")) sq_monsterjump = TRUE;
+        if (cvar("sq_boost_jump")) sq_boost_jump = TRUE;
 };
 
 /*
