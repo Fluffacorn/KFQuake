@@ -78,12 +78,18 @@ void() skate_walkframes =
         }
 
 
-        if (self.walkframe >= 120 && self.walkframe <= 125) // looks dumb but testing for walkframes is significantly less buggy and more consistent than testing for the GRIND_50 state. I think, I was drunk asf writing this LOLOLOL
+        if ((cvar("sq_boost_jump")) && self.walkframe >= 120 && self.walkframe <= 125 && self.button0) //testing for walkframes is less buggy and more consistent than testing for the GRIND_50 state. I think, I was drunk asf writing this LOLOLOL
         {
-                if (self.button0 == TRUE)
+                if (self.frags >= cvar("sq_boost_cost")) // can't do a boostjump without having the points to pay for one
                 {
                         self.velocity_z = 500; // When you press the fire key while doing a 5-0 grind, you jump!
+                        self.frags = self.frags - cvar("sq_boost_cost"); // spend x points to get a boost
 
+                }
+                else
+                {
+                        sound(self, CHAN_BODY, "player/failed.wav", 1, ATTN_NORM); // play this dumbass sound if you have no money
+                        centerprint(self, "Not enough score to leap!"); // I'd like to show points with this but we can't without strcat (not vanilla friendly)
                 }
         }
 
@@ -483,33 +489,27 @@ void() skate_land =
                                         }
                                 }
                         }
-                        else if (self.diff_grinds == GRIND_50)
+                        else if (self.diff_grinds == GRIND_50) //GRIND_50 tricks reward no trick points because it requires points
                         {
                                 trick_name = "5-0 Grind";
                                 switch (self.second_trick)
                                 {
                                 case TRICK_KICKFLIP:
-                                        trick_points = 2;
                                         trick_name = "5-0 Grind to Kickflip";
                                         break;
                                 case TRICK_GRAP:
-                                        trick_points = 3;
                                         trick_name = "5-0 Grind to Indy Grab";
                                         break;
                                 case TRICK_FRONTONEEIGHTY:
-                                        trick_points = 3;
                                         trick_name = "5-0 Grind to Pop Shove-it";
                                         break;
                                 case TRICK_THREESIXFLIP:
-                                        trick_points = 4;
                                         trick_name = "5-0 Grind to 360 Shove-it";
                                         break;
                                 case TRICK_BACKROT:
-                                        trick_points = 4;
                                         trick_name = "5-0 Grind to Backside 360";
                                         break;
                                 case TRICK_MONSTERJUMP:
-                                        trick_points = 4;
                                         trick_name = "5-0 Grind to Monster jump";
                                         break;
                                 }

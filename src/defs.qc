@@ -797,6 +797,7 @@ float sq_fail_fall;
 float sq_fail_damage;
 float sq_sidedrop;
 float sq_monsterjump;
+float sq_boost_jump;
 
 // monster platform for monster tricks
 .float monster_top;
