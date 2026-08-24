@@ -228,6 +228,7 @@ void() worldspawn =
         precache_sound ("player/yeah1.wav");        // yeah sound after trick
         precache_sound ("player/yeah2.wav");        // ...
         precache_sound ("player/failed.wav");	    // you don't have enough trick points to do a boost jump
+        precache_sound ("player/vent.wav");
 
         precache_sound("misc/talk.wav");            // talk
         precache_sound("player/teledth1.wav");      // telefrag

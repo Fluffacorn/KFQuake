@@ -82,8 +82,9 @@ void() skate_walkframes =
         {
                 if (self.frags >= cvar("sq_boost_cost")) // can't do a boostjump without having the points to pay for one
                 {
-                        self.velocity_z = 500; // When you press the fire key while doing a 5-0 grind, you jump!
+                        self.velocity_z = 580; // When you press the fire key while doing a 5-0 grind, you jump!
                         self.frags = self.frags - cvar("sq_boost_cost"); // spend x points to get a boost
+                        sound(self, CHAN_BODY, "player/vent.wav", 0.5, ATTN_NORM); // deadlock vent sound thanks valve
 
                 }
                 else
